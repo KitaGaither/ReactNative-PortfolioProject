@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
+import sparobe from '../assets/sparobe.jpg';
+import footbath from '../assets/footbath.jpg';
 import lotion from '../assets/lotion.jpg';
+
 
 
 
@@ -19,7 +22,7 @@ class Services extends Component {
                     style={styles.text}
                 >Gold Package</Text>
                 <Image 
-                    source={lotion}
+                    source={sparobe}
                     alt="pic of lotion and towel"
                     style={styles.logo}
                 />
@@ -28,7 +31,7 @@ class Services extends Component {
                     style={styles.text}
                 >Silver Package</Text>
                 <Image 
-                    source={lotion}
+                    source={footbath}
                     alt="pic of lotion and towel"
                     style={styles.logo}
                 />
