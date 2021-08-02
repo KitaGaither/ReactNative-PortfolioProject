@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+class About extends Component {
 
-class About extends Component{
+    static navigationOptions = {
+        title: 'About'
+    }
+
     render() {
-        return(
+        return (
             <View>
-                <Text>
-                    About Page
-                </Text>
+                <Text>About Component</Text>
             </View>
         );
     }
