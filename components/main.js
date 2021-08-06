@@ -92,7 +92,10 @@ const MainNavigator = createDrawerNavigator(
 
 const AppNavigator = createAppContainer(MainNavigator)
 
+
+
 class Main extends Component {
+    
     render() {
         return (
             <View style={{
