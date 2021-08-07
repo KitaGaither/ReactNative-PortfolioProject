@@ -103,7 +103,7 @@ class Main extends Component {
                 paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
             }}>
                 <AppNavigator />
-            </View>
+                </View>
         );
     }
 }
