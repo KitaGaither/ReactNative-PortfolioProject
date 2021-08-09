@@ -23,8 +23,9 @@ class Services extends Component {
                 >Gold Package</Text>
                 <Image 
                     source={sparobe}
-                    alt="pic of lotion and towel"
+                    alt="pic woman in robe"
                     style={styles.logo}
+                    onPress={() => navigate('spaImages', { spaImagesId: item.id })}
                 />
 
                 <Text
@@ -32,7 +33,7 @@ class Services extends Component {
                 >Silver Package</Text>
                 <Image 
                     source={footbath}
-                    alt="pic of lotion and towel"
+                    alt="pic of foot bath"
                     style={styles.logo}
                 />
 

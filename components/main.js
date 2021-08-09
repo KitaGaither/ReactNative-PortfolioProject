@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, Button } from 'react';
 import Home from '../components/home';
 import Services from '../components/services';
 import About from '../components/about';
 import Contact from '../components/contact';
 import Constants from 'expo-constants';
 import { Icon } from 'react-native-elements';
-import { View, Platform, StyleSheet } from 'react-native';
+import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator} from 'react-navigation-drawer';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
+import SafeAreaView from 'react-native-safe-area-view';
+
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
     drawerHeader: {
-        backgroundColor: '#5637DD',
+        backgroundColor: '#000080',
         height: 140,
         alignItems: 'center',
         justifyContent: 'center',
@@ -54,7 +56,7 @@ const ContactNavigator = createStackNavigator(
               color: '#fff'
           },
           headerLeft: <Icon
-              name='address-card'
+              name='address-card-o'
               type='font-awesome'
               iconStyle={styles.stackIcon}
           />
@@ -76,7 +78,7 @@ const AboutNavigator = createStackNavigator(
               color: '#fff'
           },
           headerLeft: <Icon
-                name='heart'
+                name='user-circle'
                 type='font-awesome'
                 iconStyle={styles.stackIcon}
                 />
@@ -99,13 +101,14 @@ const ServicesNavigator = createStackNavigator(
                 color: '#fff'
             },
             headerLeft: <Icon
-              name='info-circle'
+              name='bath'
               type='font-awesome'
               iconStyle={styles.stackIcon}         
             />
         }
     }
 );
+
 
 const HomeNavigator = createStackNavigator(
     {
@@ -121,15 +124,32 @@ const HomeNavigator = createStackNavigator(
                 color: '#fff'
             },
             headerLeft: <Icon
-              name='home'
+              name='bars'
               type='font-awesome'
               iconStyle={styles.stackIcon}  
-          />
+            />
+            
         }
     }
 );
 
-
+const CustomDrawerContentComponent = props => (
+    <ScrollView>
+        <SafeAreaView 
+            style={styles.container}
+            forceInset={{top: 'always', horizontal: 'never'}}>
+            <View style={styles.drawerHeader}>
+                <View style={{flex: 1}}>
+                    <Image source={require('..//assets/logo.jpg')} style={styles.drawerImage} />
+                </View>
+                <View style={{flex: 2}}>
+                    <Text style={styles.drawerHeaderText}>Relaxation Spa</Text>
+                </View>
+            </View>
+            <DrawerItems {...props} />
+        </SafeAreaView>
+    </ScrollView>
+  );
 
 const MainNavigator = createDrawerNavigator(
     {
@@ -141,7 +161,7 @@ const MainNavigator = createDrawerNavigator(
                         name='home'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='white'
                     />
                 )
             }
@@ -151,10 +171,10 @@ const MainNavigator = createDrawerNavigator(
             navigationOptions: {
                 drawerIcon: ({tintColor}) => (
                     <Icon
-                        name='list'
+                        name='bath'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='white'
                     />
                 )
             }
@@ -162,13 +182,13 @@ const MainNavigator = createDrawerNavigator(
         About: {
             screen: AboutNavigator,
             navigationOptions: {
-                drawerLabel: 'About Us',
+                drawerLabel: 'About',
                 drawerIcon: ({tintColor}) => (
                     <Icon
-                        name='info-circle'
+                        name='user-circle'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='white'
                     />
                 )
             }
@@ -176,20 +196,21 @@ const MainNavigator = createDrawerNavigator(
         Contact: {
             screen: ContactNavigator,
             navigationOptions: {
-                drawerLabel: 'Contact Us',
+                drawerLabel: 'Contact',
                 drawerIcon: ({tintColor}) => (
                     <Icon
-                        name='address-card'
+                        name='address-card-o'
                         type='font-awesome'
                         size={24}
-                        color={tintColor}
+                        color='white'
                     />
                 )
             }
         }
     },
     {
-        drawerBackgroundColor: '#CEC8FF',
+        drawerBackgroundColor: '#91BFF1',
+        contentComponent: CustomDrawerContentComponent
     }
 );
 
@@ -211,7 +232,6 @@ class Main extends Component {
         );
     }
 }
-
 
 
 

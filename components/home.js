@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Animated } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { Card } from 'react-native-elements';
 import { SPAIMAGES } from '../shared/spaImages';
 import { SPECIALS } from '../shared/specials';
@@ -77,7 +77,7 @@ class Home extends Component {
     const renderSpecials = this.state.specials.filter(specialItem => specialItem.id==0)[0];    
    
     return ( 
-      <View>
+      <ScrollView>
         <RenderSpaItem 
           spaItem={renderSpaImages}
         />
@@ -89,7 +89,7 @@ class Home extends Component {
         specialItem={renderSpecials}
         />        
 
-      </View>
+      </ScrollView>
     );
   }
 }
